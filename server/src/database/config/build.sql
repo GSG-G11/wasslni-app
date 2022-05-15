@@ -1,0 +1,35 @@
+BEGIN;
+DROP TABLE IF EXISTS users,parcel,route CASCADE;
+
+
+CREATE TABLE users(
+id SERIAL PRIMARY KEY,
+phoneNumber text UNIQUE NOT NULL,
+name VARCHAR(400) NOT NULL,
+password VARCHAR (400) NOT NULL,
+lng FLOAT NOT NULL,
+lat FLOAT NOT NULL,
+image TEXT NOT NULL,
+isSeller BOOLEAN 
+);
+
+CREATE TABLE parcel(
+id SERIAL PRIMARY KEY,
+name VARCHAR(400) NOT NULL,   
+deliveryPrice FLOAT,
+price FLOAT,
+status BOOLEAN DEFAULT false,
+image text ,
+created_at timestamp NOT NULL DEFAULT NOW(),
+buyer_id INT REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+seller_id INT REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE  
+);
+
+CREATE TABLE route(
+id SERIAL PRIMARY KEY,
+distance_KM FLOAT,
+duration_MINS FLOAT,
+coordinates text,
+parcel_id INT REFERENCES parcel(id) ON DELETE CASCADE ON UPDATE CASCADE    
+);
+COMMIT;
