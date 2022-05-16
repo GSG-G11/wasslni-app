@@ -4,7 +4,7 @@ import {StyleSheet, View, Text} from 'react-native';
 function Title({children}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>{children}</Text>
+      <Text style={styles.textTitle}>{children}</Text>
     </View>
   )
 }
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    welcome: {
+    textTitle: {
         fontSize: 26,
         fontWeight: 'bold',
         textAlign: 'center',
