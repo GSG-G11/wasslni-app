@@ -1,3 +1,5 @@
+import ErrMsg from "./Form";
 import Title from "./UI";
 
-export default Title;
+
+export {Title, ErrMsg};
