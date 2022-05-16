@@ -1,2 +1,7 @@
 import Form from "./Form/Form";
-export default Form;
+import ErrMsg from "./Form";
+import Title from "./UI";
+
+
+export {Title, ErrMsg , Form};
+
