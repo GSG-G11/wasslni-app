@@ -1,11 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import { Button } from './components';
+import { ErrMsg, Title } from './components';
 
 export default function App() {
   return (
-    <View style={styles.fixToText}>
-      <Button title='click' color='#ca011a'/>
+    <View style={styles.container}>
       <StatusBar style="auto" />
     </View>
   );
