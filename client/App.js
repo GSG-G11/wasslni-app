@@ -21,7 +21,7 @@ export default function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator>
         <Stack.Screen name="ابدأ" component={Home} />
         <Stack.Screen name="تسجيل الدخول" component={Login} />
       </Stack.Navigator>
