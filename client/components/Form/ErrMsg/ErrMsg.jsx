@@ -14,18 +14,18 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: '80%',
-    height: '6%',
+    width: '100%',
+    height: '20%',
     backgroundColor: '#fef0ef',
     borderColor: '#ff3334',
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 25,
   },
   errMsgText: {
-    fontSize: 18,
+    fontSize: 12,
     textAlign: 'center',
     color: '#ff3334',
-    margin: 10,
+    margin: 0,
   },
 });
 

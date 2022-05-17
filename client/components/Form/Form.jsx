@@ -13,7 +13,7 @@ function Form({
         validationSchema={validationSchema}
         onSubmit={onSubmit}
         >
-            {children}
+            {()=><>{children}</>}
         </Formik>
     )
 
