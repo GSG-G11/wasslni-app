@@ -14,21 +14,21 @@ export default function Button(props) {
 
 const styles = StyleSheet.create({
 container: {
-        alignItems: 'center',
-        margin: 20  ,
+        width: '80%'
 },
 button: {
     backgroundColor: "#ca011a",
-    borderRadius: 25,
+    borderRadius: 15,
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    padding: 15,
+    padding: 15 ,
+    borderRadius: 25,
     marginVertical: 10,
   },
   text: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize:20
+    fontSize:16
   },
 });
