@@ -22,7 +22,8 @@ export default function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="تسجيل دخول" component={Login} />
+        <Stack.Screen name="إبدأ" component={Home} />
+        <Stack.Screen name="تسجيل الدخول" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
     </UserContext.Provider>
@@ -35,6 +36,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
 });
