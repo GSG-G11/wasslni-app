@@ -15,17 +15,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    height: '20%',
-    backgroundColor: '#fef0ef',
-    borderColor: '#ff3334',
-    borderWidth: 1,
-    borderRadius: 25,
+    backgroundColor:'#ffffff6b',
+    padding:5,
+    marginBottom : 5,
   },
   errMsgText: {
-    fontSize: 12,
+    fontSize: 16,
     textAlign: 'center',
-    color: '#ff3334',
-    margin: 0,
+    color: '#ca011a',
   },
 });
 

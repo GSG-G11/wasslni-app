@@ -13,6 +13,7 @@ const Input = ({ name, type, placeholder, ...props }) => {
         onBlur={() => setFieldTouched(name)}
         onChangeText={(text) => setFieldValue(name, text)}
         {...props}
+        placeholderTextColor="#eee"
       />
       <ErrMsg error={errors[name]} visible={touched[name]} />
     </View>
@@ -24,11 +25,13 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#f0c13f',
+    borderColor: '#fff',
     padding: 15,
-    marginBottom: 5,
+    marginBottom: 15,
     borderRadius: 25,
     width: '100%',
+    textAlign: 'right',
+    color:'#fff',
   },
 });
 

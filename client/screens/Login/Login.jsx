@@ -5,6 +5,8 @@ import axios from 'axios';
 import UserContext from '../../context/userContext';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet ,   ImageBackground , Text, View} from 'react-native';
+import loginRes from '../../assets/loginRes.jpg'
 
 export default function Login({ navigation }) {
   const [errMsg, setErrMsg] = useState('');
@@ -17,7 +19,8 @@ export default function Login({ navigation }) {
       });
       const decodedCookie = getUserInfo(response.headers['set-cookie']);
       setUser({ isLoggedIn: true, decodedCookie });
-      navigation.navigate('Home')
+      setErrMsg('')
+      navigation.navigate('طرودي')
     } catch (error) {
       if (error.response.status === 400) {
         setErrMsg('كلمة المرور أو رقم الهاتف غير صحيح');
@@ -25,15 +28,34 @@ export default function Login({ navigation }) {
     }
   };
   return (
-    <Form
+      <ImageBackground  style={styles.loginContainer} source={loginRes} >
+      <Form
       validationSchema={loginSchema}
       initialValues={{ phoneNumber: '', password: '' }}
       onSubmit={handleSubmit}
     >
-      <Input name="phoneNumber" type="text" placeholder="  ادخل رقم الهاتف مبدوء ب 59/56  " />
-      <Input name="password" type="password" placeholder="ادخل كلمة السر " secureTextEntry />
-      <ErrorText errMsg={errMsg} />
+      <View style={styles.formContainer}>
+      <Input name="phoneNumber" type="text" placeholder="  ادخل رقم الهاتف مبدوء ب 59/56"   />
+      <Input name="password" type="password" placeholder="ادخل كلمة السر " secureTextEntry  />
+      <Text>{errMsg && <ErrorText errMsg={errMsg} />}</Text>
       <SubmitButton title="تأكيد" />
+      </View>
     </Form>
+      </ImageBackground>
+
   );
 }
+const styles = StyleSheet.create({
+  loginContainer : {
+    flex:1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width : "100%",
+  },
+  formContainer : {
+    flex:1,
+    alignItems: 'center',
+    justifyContent: 'start',
+    width : "100%",
+  }
+});
