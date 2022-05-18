@@ -33,14 +33,10 @@ const styles = StyleSheet.create({
   },
   homeTextContainer: {
       width : "60%",
-      paddingLeft: "8%",
-      marginRight: "45%",
   },
   homeText: {
     fontSize: 16,
-    marginBottom: 120,
-  },
-  homeButton: {
-    marginLeft:10,
-  },
+    marginBottom: 50,
+    textAlign: "center",
+  }
 });
