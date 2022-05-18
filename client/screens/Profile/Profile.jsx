@@ -5,28 +5,31 @@ import { Map } from '../../components';
 
 function Profile() {
   const { user } = useContext(UserContext);
+  const { urlImg } = user;
   return (
       <>
     <View style={styles.container}>
           <View>
-            <Image source={user.urlImg} alt="profile" />
-            <Text>Image</Text>
+            <Image style={styles.profileImage} source={{ uri : urlImg }} alt="profile" />
           </View>
           <View style={styles.infoContainer}>
-            <Text style={styles.infoText}>
-                <Text>الإسم :</Text>
-              <Text>{user.userName}</Text>
+            <Text>
+                <Text style={styles.infoTitleText}>الإسم :</Text>
+                {' '}
+              <Text style={styles.infoText}>{user.userName}</Text>
             </Text>
-            <Text style={styles.infoText}>
-             <Text> الصلاحيات :</Text>
-              <Text>{user.role ? ' تاجر ' : 'مشتري'}</Text>
+            <Text>
+             <Text style={styles.infoTitleText}> الصلاحيات :</Text>
+             {' '}
+              <Text style={styles.infoText}>{user.role ? ' تاجر ' : 'مشتري'}</Text>
             </Text>
-            <Text style={styles.infoText}>
-                <Text>رقم الجوال :</Text>
-              <Text>{user.phoneNumber}</Text>
+            <Text>
+                <Text style={styles.infoTitleText}>رقم الجوال :</Text>
+                {' '}
+              <Text style={styles.infoText}>{user.phoneNumber}</Text>
             </Text>
           </View>
-        <Text>موقعي</Text>
+        <Text style={styles.mapText}>موقعي</Text>
       </View>
     <Map showPosition />
     </>
@@ -38,14 +41,31 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "space-between",
         alignItems: "center",
+        width: "100%",
+        paddingBottom: 20,
+    },
+    profileImage: {
+        width: 120,
+        height: 120,
+        borderRadius: 100,
+        marginTop: 40,
     },
     infoContainer: {
-        flex:1,
-        justifyContent: "space-around",
+        height: "30%",
+        justifyContent: "space-between",
         alignItems: "center",
     },
+    infoTitleText: {
+        fontSize:20,
+        fontWeight: "bold",
+    },
     infoText: {
-        fontSize:25,
+        fontSize:16,
+    },
+    mapText: {
+        fontSize:24,
+        fontWeight: "bold",
+        color: "#ca011a",
     }
 });
 
