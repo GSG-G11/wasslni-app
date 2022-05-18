@@ -20,21 +20,13 @@ export default function App() {
   });
 
   return (
-    // <UserContext.Provider value={{ user, setUser }}>
-    //   <NavigationContainer>
-    //   <Stack.Navigator>
-    //     <Stack.Screen name="تسجيل دخول" component={Card} />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    // </UserContext.Provider>
-    //{name, status , id , navigation }
-    <>
-    <Card name="حقيبة" status="true" id="1" navigation />
-    <Card name="حقيبة" status="true" id="1" navigation />
-    <Card name="حقيبة" status="true" id="1" navigation />
-    <Card name="حقيبة" status="true" id="1" navigation />
-    <Card name="حقيبة" status="true" id="1" navigation />
-    </>
+    <UserContext.Provider value={{ user, setUser }}>
+      <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="تسجيل دخول" component={Card} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    </UserContext.Provider>
   );
 }
 
