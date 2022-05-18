@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
     textAlign:'right',
+    width: '100%'
   },
   name:{
     fontSize:24,

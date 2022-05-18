@@ -22,13 +22,11 @@ export default function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
-
         <Stack.Navigator>
-          <Stack.Screen name="وصلني" component={Parcels} />
-          <Stack.Screen name="تسجيل الدخول" component={Login} />
+          <Stack.Screen name="وصلني" component={Login} />
+          <Stack.Screen name="طرودي" component={Parcels} />
         </Stack.Navigator>
       </NavigationContainer>
-
     </UserContext.Provider>
   );
 }
