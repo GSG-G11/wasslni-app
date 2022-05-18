@@ -2,5 +2,5 @@ import Button from "./Button/Buttom";
 import Input from "./Input/Input";
 import Title from "./Title/Title";
 
-export {Button , Title , Input}
+export {Button  , Input , Title}
 

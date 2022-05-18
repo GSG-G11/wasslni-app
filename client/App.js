@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import UserContext from './context/userContext';
-import { Home, Login } from './screens';
+import { Home, Login , Parcels} from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Card } from './components';
@@ -24,7 +24,7 @@ export default function App() {
       <NavigationContainer>
 
         <Stack.Navigator>
-          <Stack.Screen name="وصلني" component={Home} />
+          <Stack.Screen name="وصلني" component={Parcels} />
           <Stack.Screen name="تسجيل الدخول" component={Login} />
         </Stack.Navigator>
       </NavigationContainer>
