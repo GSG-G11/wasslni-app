@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { ErrorText, Form, Input, SubmitButton } from '../../components';
-import { getUserInfo, loginSchema } from '../../utils/';
+import { getUserInfo, loginSchema } from '../../utils';
 import axios from 'axios';
 import UserContext from '../../context/userContext';
 import { NavigationContainer } from '@react-navigation/native';
