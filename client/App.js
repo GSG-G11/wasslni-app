@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { useState} from "react";
+import { StyleSheet } from "react-native";
 import UserContext from "./context/userContext";
 import { Home, Login } from "./screens";
 import { NavigationContainer } from "@react-navigation/native";
