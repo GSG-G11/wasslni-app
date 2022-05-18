@@ -24,7 +24,7 @@ export default function App() {
       <NavigationContainer>
 
         <Stack.Navigator>
-          <Stack.Screen name="ابدأ" component={Home} />
+          <Stack.Screen name="وصلني" component={Home} />
           <Stack.Screen name="تسجيل الدخول" component={Login} />
         </Stack.Navigator>
       </NavigationContainer>
