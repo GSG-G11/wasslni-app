@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import UserContext from './context/userContext';
-import { Home, Login, Profile } from './screens';
+import { Home, Login, Profile, Parcels } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -23,10 +23,8 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="وصلني" component={Home} />
-          <Stack.Screen name="تسجيل الدخول" component={Login} />
-        <Stack.Screen name="بروفايل" component={Profile} />
-      </Stack.Navigator>
-    </NavigationContainer>
+        </Stack.Navigator>
+      </NavigationContainer>
     </UserContext.Provider>
   );
 }
