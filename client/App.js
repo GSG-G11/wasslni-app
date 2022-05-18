@@ -4,6 +4,7 @@ import UserContext from './context/userContext';
 import { Home, Login } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Card } from './components';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -22,7 +23,7 @@ export default function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="تسجيل دخول" component={Login} />
+        <Stack.Screen name="تسجيل دخول" component={Card} />
       </Stack.Navigator>
     </NavigationContainer>
     </UserContext.Provider>
@@ -35,6 +36,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
 });

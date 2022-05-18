@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-
-export default function ErrorText({ errMsg }) {
+ 
+function ErrorText({ errMsg }) {
   return (
     <View style={styles.container}>
     <Text style={styles.errMsgText}>{errMsg}</Text>
@@ -25,3 +25,4 @@ const styles = StyleSheet.create({
     },
   });
   
+export default ErrorText ;
