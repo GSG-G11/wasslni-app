@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet } from 'react-native';
 import UserContext from './context/userContext';
-import { Home, Login } from './screens';
+import { Home, Login, Profile } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Card } from './components';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -22,13 +21,12 @@ export default function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
-
         <Stack.Navigator>
           <Stack.Screen name="وصلني" component={Home} />
           <Stack.Screen name="تسجيل الدخول" component={Login} />
-        </Stack.Navigator>
-      </NavigationContainer>
-
+        <Stack.Screen name="بروفايل" component={Profile} />
+      </Stack.Navigator>
+    </NavigationContainer>
     </UserContext.Provider>
   );
 }
