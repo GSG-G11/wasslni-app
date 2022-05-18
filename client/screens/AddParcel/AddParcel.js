@@ -36,13 +36,15 @@ const AddParcel = () => {
       aspect: [4, 3],
       quality: 1,
       allowsEditing: true,
+      base64: true,
     });
 
     console.log(result);
 
     if (!result.cancelled) {
-      setImage(result.uri);
-      console.log(result.uri);
+      setImage(result.base64);
+
+      console.log(image);
     }
   };
   const handleSubmit = () => {};
@@ -58,7 +60,10 @@ const AddParcel = () => {
         <Input name="price" type="text" placeholder="سعر الطرد" />
         <Button onPress={handleImg} title="اختر صورة"></Button>
         {image && (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+          <Image
+            source={{ uri: `data:image/gif;base64,${image}` }}
+            style={{ width: 200, height: 200 }}
+          />
         )}
         <Text>{errMsg && <ErrorText errMsg={errMsg} />}</Text>
         <SubmitButton title="تأكيد" />
