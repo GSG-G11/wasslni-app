@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import * as Location from 'expo-location';
 import UserContext from '../../context/userContext';
 
-export default function Map({ data, setPositin, showPosition }) {
+export default function Map({ data, setPosition, showPosition }) {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [polyline, setPolyline] = useState(null);
@@ -23,14 +23,16 @@ export default function Map({ data, setPositin, showPosition }) {
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
+
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
+
         return;
       }
 
       let location = await Location.getCurrentPositionAsync({});
       setLocation(location);
-      if (setPositin) {
+      if (setPosition) {
         setUser({
           ...user,
           lat: location.coords.latitude,
@@ -47,8 +49,8 @@ export default function Map({ data, setPositin, showPosition }) {
           <MapView
             style={styles.map}
             region={{
-              latitude: user.lat ? data[0][1] : user.lat,
-              longitude: user.lng ? data[0][0] : user.lng,
+              latitude: user.lat && data ? data[0][1] : user.lat,
+              longitude: user.lng && data ? data[0][0] : user.lng,
               latitudeDelta: data ? 0.2 : 0.001,
               longitudeDelta: 0.0121,
             }}
