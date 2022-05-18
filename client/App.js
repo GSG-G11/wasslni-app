@@ -9,9 +9,9 @@ import { Card } from './components';
 export default function App() {
   const Stack = createNativeStackNavigator();
   const [user, setUser] = useState({
-    username: '',
-    phoneNumber: '',
-    image: '',
+    username: "",
+    phoneNumber: "",
+    image: "",
     lat: 0.0,
     lng: 0.0,
     isSeller: false,
@@ -22,10 +22,13 @@ export default function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="تسجيل دخول" component={Card} />
-      </Stack.Navigator>
-    </NavigationContainer>
+
+        <Stack.Navigator>
+          <Stack.Screen name="وصلني" component={Home} />
+          <Stack.Screen name="تسجيل الدخول" component={Login} />
+        </Stack.Navigator>
+      </NavigationContainer>
+
     </UserContext.Provider>
   );
 }
