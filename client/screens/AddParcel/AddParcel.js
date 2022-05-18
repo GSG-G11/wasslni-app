@@ -1,39 +1,49 @@
-import React, { useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
+import React, { useState, useEffect } from 'react';
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  Platform,
+  Image,
+} from 'react-native';
+
+import * as ImagePicker from 'expo-image-picker';
 import { Button, ErrorText, Form, Input, SubmitButton } from '../../components';
 import { addParcelSchema } from '../../utils';
 
 const AddParcel = () => {
   const [errMsg, setErrMsg] = useState('');
-
-  const handleImg = () => {
-    var options = {
-      title: 'Select Image',
-      customButtons: [
-        {
-          name: 'customOptionKey',
-          title: 'Choose Photo from Custom Option',
-        },
-      ],
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-    launchImageLibrary(options, (response) => {
-      console.log('Response = ', response);
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-        alert(response.customButton);
-      } else {
-        setFilePath(response);
+  const [image, setImage] = useState(null);
+  useEffect(() => {
+    (async () => {
+      if (Platform.OS !== 'web') {
+        const { status } =
+          await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+          alert(
+            'Sorry, Camera roll permissions are required to make this work!'
+          );
+        }
       }
+    })();
+  }, []);
+  const handleImg = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      aspect: [4, 3],
+      quality: 1,
+      allowsEditing: true,
     });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+      console.log(result.uri);
+    }
   };
   const handleSubmit = () => {};
   return (
@@ -47,6 +57,9 @@ const AddParcel = () => {
         <Input name="phoneNumber" type="text" placeholder="رقم المشتري" />
         <Input name="price" type="text" placeholder="سعر الطرد" />
         <Button onPress={handleImg} title="اختر صورة"></Button>
+        {image && (
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        )}
         <Text>{errMsg && <ErrorText errMsg={errMsg} />}</Text>
         <SubmitButton title="تأكيد" />
       </View>
