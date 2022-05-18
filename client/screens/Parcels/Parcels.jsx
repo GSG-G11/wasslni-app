@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text , View , StyleSheet} from 'react-native';
+import { Text , View , StyleSheet , Platform} from 'react-native';
 import { Card, Loader, Title  } from "../../components";
 import axios from 'axios';
 
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         direction:"ltr",
     },
     card : {
-        height : '40%',
+        height: Platform.OS === "android" ? '200' : "40%",
         width : '95%',
     }
   })
