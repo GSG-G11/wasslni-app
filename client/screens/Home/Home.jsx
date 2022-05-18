@@ -27,22 +27,20 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
+    alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    textAlign: "right",
   },
   homeTextContainer: {
-    width: "60%",
-    paddingLeft: "8%",
+      width : "60%",
+      paddingLeft: "8%",
+      marginRight: "45%",
   },
   homeText: {
-    textAlign: "center",
     fontSize: 16,
-    marginBottom: 50,
+    marginBottom: 120,
   },
   homeButton: {
-    direction: "rtl",
-    marginLeft: 10,
-    marginBottom: 50,
+    marginLeft:10,
   },
 });
