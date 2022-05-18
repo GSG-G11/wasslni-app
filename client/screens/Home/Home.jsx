@@ -43,6 +43,6 @@ const styles = StyleSheet.create({
   homeButton: {
     direction: "rtl",
     marginLeft: 10,
-    marginBottom: 50
+    marginBottom: 50,
   },
 });
