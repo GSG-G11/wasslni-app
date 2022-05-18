@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   card:{
     flex: 1,
     backgroundColor:'#fff',
-    margin:10,
+    margin:15,
     padding:10,
     justifyContent:'center',
     alignItems: 'flex-end',
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
     textAlign:'right',
+    width: '100%'
   },
   name:{
     fontSize:24,
