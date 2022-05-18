@@ -17,7 +17,7 @@ export default function Home({ navigation }) {
           قياسي
         </Text>
         <View style={styles.homeButton}>
-            <Button title="ابدأ" onPress={handleNavigate} />
+          <Button title="ابدأ" onPress={handleNavigate} />
         </View>
       </View>
     </ImageBackground>
@@ -27,24 +27,22 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
-    alignItems: "flex-end",
     justifyContent: "center",
     width: "100%",
+    textAlign: "right",
   },
   homeTextContainer: {
-      width : "60%",
-      paddingLeft: "8%",
-      textAlign: "rigth",
-
+    width: "60%",
+    paddingLeft: "8%",
   },
   homeText: {
     textAlign: "center",
     fontSize: 16,
-    marginBottom: 100,
+    marginBottom: 50,
   },
   homeButton: {
-    direction:"rtl",
-    marginLeft:10,
-    
+    direction: "rtl",
+    marginLeft: 10,
+    marginBottom: 50
   },
 });
