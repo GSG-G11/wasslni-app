@@ -4,13 +4,14 @@ import UserContext from './context/userContext';
 import { Home, Login } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Card } from './components';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
   const [user, setUser] = useState({
-    username: '',
-    phoneNumber: '',
-    image: '',
+    username: "",
+    phoneNumber: "",
+    image: "",
     lat: 0.0,
     lng: 0.0,
     isSeller: false,
@@ -21,10 +22,13 @@ export default function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="تسجيل دخول" component={Login} />
-      </Stack.Navigator>
-    </NavigationContainer>
+
+        <Stack.Navigator>
+          <Stack.Screen name="وصلني" component={Home} />
+          <Stack.Screen name="تسجيل الدخول" component={Login} />
+        </Stack.Navigator>
+      </NavigationContainer>
+
     </UserContext.Provider>
   );
 }
@@ -35,6 +39,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
 });
