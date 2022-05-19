@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { StyleSheet ,  SafeAreaView} from 'react-native';
 import UserContext from './context/userContext';
-import { Home, Login, Profile, Parcels } from './screens';
+import { AddParcel, Home, Login, Parcels } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainContainer from './screens/MainContainer';
@@ -10,9 +10,9 @@ import MainContainer from './screens/MainContainer';
 export default function App() {
   const Stack = createNativeStackNavigator();
   const [user, setUser] = useState({
-    username: "",
-    phoneNumber: "",
-    image: "",
+    username: '',
+    phoneNumber: '',
+    image: '',
     lat: 0.0,
     lng: 0.0,
     isSeller: false,
