@@ -16,10 +16,12 @@ import UserContext from '../../context/userContext';
 const AddParcel = ({ navigation }) => {
   const {
     user: { phoneNumber: phoneNumberContext },
+    setParcels,
+    parcels,
   } = useContext(UserContext);
   const [errMsg, setErrMsg] = useState('');
   const [image, setImage] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -46,18 +48,21 @@ const AddParcel = ({ navigation }) => {
     }
   };
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     const { name, price, phoneNumber } = e;
     if (!image) {
       setErrMsg('الرجاء اختيار صورة');
+      setIsLoading(false);
       return;
     }
     if (phoneNumberContext.slice(4) === phoneNumber) {
       setErrMsg('   لا يمكن اضافة طرد لنفسك , الرجاء تغيير الرقم');
+      setIsLoading(false);
       return;
     }
+
+    setErrMsg('');
     try {
-      setIsLoading(true);
-      setErrMsg('');
       const response = await axios.post(
         'https://wasslni.herokuapp.com/api/v1/parcels/',
         {
@@ -67,6 +72,8 @@ const AddParcel = ({ navigation }) => {
           image: 'data:image/jpeg;base64,' + image,
         }
       );
+      const { id, status, name: parcelName } = response.data.data;
+      setParcels([...parcels, { id, status, name: parcelName }]);
       setIsLoading(!isLoading);
       navigation.navigate('طرودي');
     } catch (error) {

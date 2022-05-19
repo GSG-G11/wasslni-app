@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Text, View, StyleSheet, Platform, ScrollView } from 'react-native';
 import { AddParcel, Button, Card, Loader, Title } from '../../components';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import axios from 'axios';
+import UserContext from '../../context/userContext';
 
-export default function Parcels({navigation}) {
-  const [parcels, setParcels] = useState('');
+export default function Parcels({ navigation }) {
+  const { parcels, setParcels } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const getParcels = async () => {
     try {
@@ -21,7 +22,7 @@ export default function Parcels({navigation}) {
   };
   useEffect(() => {
     getParcels();
-  }, []);
+  }, [parcels]);
   return (
     <View style={styles.cardContainer}>
       <ScrollView>
