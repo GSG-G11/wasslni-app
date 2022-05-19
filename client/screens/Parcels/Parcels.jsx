@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, Platform } from 'react-native';
+import { Text, View, StyleSheet, Platform, ScrollView } from 'react-native';
 import { AddParcel, Button, Card, Loader, Title } from '../../components';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import axios from 'axios';
 
 export default function Parcels({ navigation }) {
@@ -22,22 +24,28 @@ export default function Parcels({ navigation }) {
   }, []);
   return (
     <View style={styles.cardContainer}>
-      <View style={styles.title}>
-        <Title>طرودي</Title>
-        <Button onPress={() => navigation.navigate('اضافة طرد')} />
-      </View>
-      {loading ? <Loader /> : null}
-      <View>
-        {parcels.length ? (
-          parcels.map((parcel) => (
-            <View style={styles.card}>
-              <Card id={parcel.id} name={parcel.name} status={parcel.status} />
-            </View>
-          ))
-        ) : (
-          <Title>لا يوجد طرود حاليا</Title>
-        )}
-      </View>
+      <ScrollView>
+        <View style={styles.title}>
+          <Title>طرودي</Title>
+          <Button onPress={() => navigation.navigate('اضافة طرد')} />
+        </View>
+        {loading ? <Loader /> : null}
+        <View>
+          {parcels.length ? (
+            parcels.map((parcel) => (
+              <View style={styles.card}>
+                <Card
+                  id={parcel.id}
+                  name={parcel.name}
+                  status={parcel.status}
+                />
+              </View>
+            ))
+          ) : (
+            <Title>لا يوجد طرود حاليا</Title>
+          )}
+        </View>
+      </ScrollView>
     </View>
   );
 }

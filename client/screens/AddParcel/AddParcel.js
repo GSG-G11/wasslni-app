@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-  Platform,
-  Image,
-} from 'react-native';
-
+import { StyleSheet, Text, View, Platform, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { Button, ErrorText, Form, Input, SubmitButton } from '../../components';
+import {
+  Button,
+  ErrorText,
+  Form,
+  Input,
+  Loader,
+  SubmitButton,
+} from '../../components';
 import { addParcelSchema } from '../../utils';
-
-const AddParcel = () => {
+import axios from 'axios';
+const AddParcel = ({ navigation }) => {
   const [errMsg, setErrMsg] = useState('');
   const [image, setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -33,21 +31,40 @@ const AddParcel = () => {
   const handleImg = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
-      aspect: [4, 3],
       quality: 1,
-      allowsEditing: true,
       base64: true,
     });
 
-    console.log(result);
-
     if (!result.cancelled) {
       setImage(result.base64);
-
-      console.log(image);
+      setErrMsg('');
     }
   };
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    const { name, price, phoneNumber } = e;
+    if (!image) {
+      setErrMsg('الرجاء اختيار صورة');
+      return;
+    }
+    try {
+      setIsLoading(true);
+      setErrMsg('');
+      const response = await axios.post(
+        'https://wasslni.herokuapp.com/api/v1/parcels/',
+        {
+          name,
+          phoneNumber: `+970${phoneNumber}`,
+          price,
+          image: 'data:image/jpeg;base64,' + image,
+        }
+      );
+      setIsLoading(!isLoading);
+      navigation.navigate('طرودي');
+    } catch (error) {
+      setIsLoading(false);
+      setErrMsg('لا يوجد زبون بهذا الرقم');
+    }
+  };
   return (
     <Form
       initialValues={{ name: '', phoneNumber: '', price: '' }}
@@ -65,8 +82,10 @@ const AddParcel = () => {
             style={{ width: 200, height: 200 }}
           />
         )}
-        <Text>{errMsg && <ErrorText errMsg={errMsg} />}</Text>
+
         <SubmitButton title="تأكيد" />
+        <Text>{errMsg && <ErrorText errMsg={errMsg} />}</Text>
+        {isLoading && <Loader />}
       </View>
     </Form>
   );
