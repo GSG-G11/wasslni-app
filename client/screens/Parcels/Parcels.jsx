@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import axios from 'axios';
 
-export default function Parcels({ navigation }) {
+export default function Parcels() {
   const [parcels, setParcels] = useState('');
   const [loading, setLoading] = useState(true);
   const getParcels = async () => {
@@ -27,7 +27,6 @@ export default function Parcels({ navigation }) {
       <ScrollView>
         <View style={styles.title}>
           <Title>طرودي</Title>
-          <Button onPress={() => navigation.navigate('اضافة طرد')} />
         </View>
         {loading ? <Loader /> : null}
         <View>

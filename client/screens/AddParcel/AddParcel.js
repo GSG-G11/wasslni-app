@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { StyleSheet, Text, View, Platform, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import {
@@ -11,7 +11,12 @@ import {
 } from '../../components';
 import { addParcelSchema } from '../../utils';
 import axios from 'axios';
+import UserContext from '../../context/userContext';
+
 const AddParcel = ({ navigation }) => {
+  const {
+    user: { phoneNumber: phoneNumberContext },
+  } = useContext(UserContext);
   const [errMsg, setErrMsg] = useState('');
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
@@ -44,6 +49,10 @@ const AddParcel = ({ navigation }) => {
     const { name, price, phoneNumber } = e;
     if (!image) {
       setErrMsg('الرجاء اختيار صورة');
+      return;
+    }
+    if (phoneNumberContext.slice(4) === phoneNumber) {
+      setErrMsg('   لا يمكن اضافة طرد لنفسك , الرجاء تغيير الرقم');
       return;
     }
     try {
