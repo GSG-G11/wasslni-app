@@ -21,7 +21,6 @@ export default function App() {
   });
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <SafeAreaView>
       <NavigationContainer>
         {!user.isLoggedIn ?
          <Stack.Navigator>
@@ -29,9 +28,7 @@ export default function App() {
           <Stack.Screen name="تسجيل الدخول" component={Login} />
         </Stack.Navigator>
         :<MainContainer />}
-      </NavigationContainer>
-      </SafeAreaView>
-      
+      </NavigationContainer>      
     </UserContext.Provider>
   );
 }
