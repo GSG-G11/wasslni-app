@@ -22,7 +22,7 @@ export default function Parcels({ navigation }) {
   };
   useEffect(() => {
     getParcels();
-  }, [parcels]);
+  }, []);
   return (
     <View style={styles.cardContainer}>
       <ScrollView>

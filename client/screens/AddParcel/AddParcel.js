@@ -27,6 +27,7 @@ const AddParcel = ({ navigation }) => {
       if (Platform.OS !== 'web') {
         const { status } =
           await ImagePicker.requestMediaLibraryPermissionsAsync();
+
         if (status !== 'granted') {
           alert(
             'Sorry, Camera roll permissions are required to make this work!'
@@ -35,6 +36,7 @@ const AddParcel = ({ navigation }) => {
       }
     })();
   }, []);
+
   const handleImg = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -75,12 +77,13 @@ const AddParcel = ({ navigation }) => {
       const { id, status, name: parcelName } = response.data.data;
       setParcels([...parcels, { id, status, name: parcelName }]);
       setIsLoading(!isLoading);
-      navigation.navigate('طرودي');
+      return navigation.navigate('طرودي');
     } catch (error) {
       setIsLoading(false);
       setErrMsg('لا يوجد زبون بهذا الرقم');
     }
   };
+
   return (
     <Form
       initialValues={{ name: '', phoneNumber: '', price: '' }}
