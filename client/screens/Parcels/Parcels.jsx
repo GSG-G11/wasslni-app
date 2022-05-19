@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         direction:"ltr",
     },
     card : {
-        height: Platform.OS === "android" ? '200' : "40%",
+        height: Platform.OS === "android" ? 200 : "40%",
         width : '95%',
     }
   })

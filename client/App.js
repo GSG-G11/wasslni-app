@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import UserContext from './context/userContext';
-import { Home, Login, Profile, Parcels } from './screens';
+import { Home, } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 

@@ -5,6 +5,7 @@ import { SubmitButton } from "./Form/SubmitButton";
 import ErrorText from "./ErrorText/ErrorText";
 import Card from "./Card/Card";
 import Map from "./Map/Map"
+import Property from "./Property/Property";
 
-export {Title, ErrMsg , Form , Button,SubmitButton , Input , ErrorText , Card, Map , Loader};
+export {Title, ErrMsg , Form , Button,SubmitButton , Input , ErrorText , Card, Map , Loader, Property};
 

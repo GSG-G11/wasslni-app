@@ -23,7 +23,7 @@ export default function Login({ navigation }) {
       const decodedCookie = getUserInfo(response.headers['set-cookie']);
       setUser({ isLoggedIn: true, ...decodedCookie });
       setErrMsg('');
-      navigation.navigate('بروفايل');
+      navigation.navigate('طرودي');
     } catch (error) {
       if (error.response.status === 400) {
         setErrMsg('كلمة المرور أو رقم الهاتف غير صحيح');
