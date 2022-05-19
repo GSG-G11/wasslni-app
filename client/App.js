@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import UserContext from './context/userContext';
-import { Home, } from './screens';
+import { AddParcel, Home, Login, Parcels } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
   const [user, setUser] = useState({
-    username: "",
-    phoneNumber: "",
-    image: "",
+    username: '',
+    phoneNumber: '',
+    image: '',
     lat: 0.0,
     lng: 0.0,
     isSeller: false,

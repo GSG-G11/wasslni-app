@@ -1,6 +1,5 @@
 import getUserInfo from './userInfo/getUserInfo';
-import { loginSchema } from "./validation";
+import { loginSchema } from './validation';
+import addParcelSchema from './validation/parcel/addParcelSchema';
 
-export { getUserInfo, loginSchema};
-
-
+export { getUserInfo, loginSchema, addParcelSchema };
