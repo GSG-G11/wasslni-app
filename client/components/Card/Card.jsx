@@ -4,11 +4,11 @@ import { Button } from "..";
 
 export default function Card({ name, status, id, navigation, children }) {
   const onPress = () => {
-    navigation.navigate("ParcelDatails", { id: { id } });
+    navigation.navigate( "تفاصيل الطرد", { id: id });
   };
   return (
     <View id={id} style={styles.card}>
-      {false ? (
+      {name ? (
         <View>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.status}>

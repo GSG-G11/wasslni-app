@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Text, View, StyleSheet, Platform, ScrollView } from 'react-native';
 import { AddParcel, Button, Card, Loader, Title } from '../../components';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import axios from 'axios';
+import UserContext from '../../context/userContext';
 
-export default function Parcels() {
-  const [parcels, setParcels] = useState('');
+export default function Parcels({ navigation }) {
+  const { parcels, setParcels } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const getParcels = async () => {
     try {
@@ -34,9 +35,11 @@ export default function Parcels() {
             parcels.map((parcel) => (
               <View style={styles.card}>
                 <Card
+                  key={parcel.id}
                   id={parcel.id}
                   name={parcel.name}
                   status={parcel.status}
+                  navigation={navigation}
                 />
               </View>
             ))
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
     direction: 'ltr',
   },
   card: {
-    height: Platform.OS === 'android' ? 200 : '40%',
+    height: Platform.OS === 'android' ? 200 : 200,
     width: '95%',
   },
 });
