@@ -11,7 +11,7 @@ export default function MainContainer() {
   const { user: { role}} = useContext(UserContext);
   return (
     
-      <Tab.Navigator initialRouteName="طرودي" navigationOptions={({e})=>{console.log(e)}}>
+      <Tab.Navigator initialRouteName="طرودي" >
         <Tab.Screen
           name="طرودي"
           component={Parcels}
@@ -47,10 +47,11 @@ export default function MainContainer() {
         <Tab.Screen
           name="تفاصيل الطرد"
           component={ParcelDetails}
+          initialParams={{ id: 1 }}
           options={{
-            tabBarActiveTintColor:'#fff' ,
+            tabBarActiveTintColor:'#ca011a' ,
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons  color={color} size={size} />
+              <MaterialCommunityIcons  name="book" color={color} size={size} />
             ),
           }}
         />

@@ -81,6 +81,7 @@ const AddParcel = ({ navigation }) => {
     } catch (error) {
       setIsLoading(false);
       setErrMsg('لا يوجد زبون بهذا الرقم');
+      console.log(error);
     }
   };
 
