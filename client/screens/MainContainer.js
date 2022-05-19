@@ -3,15 +3,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { Text, SafeAreaView } from 'react-native';
-import { Parcels} from '.';
+import { Parcels , Logout} from '.';
 
 const Tab = createBottomTabNavigator();
 export default function MainContainer() {
   return (
-    <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
-          name="Home"
+          name="Parcels"
           component={Parcels}
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -19,7 +18,15 @@ export default function MainContainer() {
             ),
           }}
         />
+         <Tab.Screen
+          name="Logout"
+          component={Logout}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="logout" color={color} size={size} />
+            ),
+          }}
+        />
       </Tab.Navigator>
-    </NavigationContainer>
   );
 }

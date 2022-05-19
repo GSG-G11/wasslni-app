@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { useContext, useState } from 'react';
+import { StyleSheet ,  SafeAreaView} from 'react-native';
 import UserContext from './context/userContext';
 import { Home, Login, Profile, Parcels } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainContainer from './screens/MainContainer';
+
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -18,15 +19,19 @@ export default function App() {
     isLoggedIn: false,
     id: 0,
   });
-
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      {/* <NavigationContainer>
-        <Stack.Navigator>
+      <SafeAreaView>
+      <NavigationContainer>
+        {!user.isLoggedIn ?
+         <Stack.Navigator>
           <Stack.Screen name="وصلني" component={Home} />
+          <Stack.Screen name="تسجيل الدخول" component={Login} />
         </Stack.Navigator>
-      </NavigationContainer> */}
-      <MainContainer />
+        :<MainContainer />}
+      </NavigationContainer>
+      </SafeAreaView>
+      
     </UserContext.Provider>
   );
 }
