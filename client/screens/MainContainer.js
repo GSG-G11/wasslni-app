@@ -15,7 +15,9 @@ export default function MainContainer() {
         <Tab.Screen
           name="طرودي"
           component={Parcels}
+          
           options={{
+            headerShown: false,
             tabBarActiveTintColor:'#ca011a' ,
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />

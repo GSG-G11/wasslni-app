@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     justifyContent :'center',
-    alignItems:'center'
+    alignItems:'center',
+    marginTop:20,
   },
   card: {
     height: Platform.OS === 'android' ? 200 : 200,

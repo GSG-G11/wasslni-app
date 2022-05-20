@@ -23,7 +23,9 @@ export default function App() {
     <UserContext.Provider value={{ user, setUser, parcels, setParcels }}>
       <NavigationContainer>
         {!user.isLoggedIn ? (
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={{
+            headerShown: false
+          }}>
             <Stack.Screen name="وصلني" component={Home} />
             <Stack.Screen name="تسجيل الدخول" component={Login} />
           </Stack.Navigator>
