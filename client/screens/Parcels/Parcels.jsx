@@ -26,16 +26,13 @@ export default function Parcels({ navigation }) {
   return (
     <View style={styles.cardContainer}>
       <ScrollView>
-        <View style={styles.title}>
-          <Title>طرودي</Title>
-        </View>
+          <Title style={styles.title}>طرودي</Title>
         {loading ? <Loader /> : null}
         <View>
           {parcels.length ? (
             parcels.map((parcel) => (
-              <View style={styles.card}>
+              <View style={styles.card} key={parcel.id}>
                 <Card
-                  key={parcel.id}
                   id={parcel.id}
                   name={parcel.name}
                   status={parcel.status}
@@ -53,18 +50,18 @@ export default function Parcels({ navigation }) {
 }
 const styles = StyleSheet.create({
   title: {
-    flex: 0,
-    flexDirection: 'row-reverse',
+    flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    direction: 'rtl',
+    justifyContent: 'center',
   },
   cardContainer: {
     flex: 1,
-    direction: 'ltr',
+    justifyContent :'center',
+    alignItems:'center',
+    marginTop:20,
   },
   card: {
-    height: Platform.OS === 'android' ? 200 : 200,
-    width: '95%',
+    height: 200,
+    width: 400,
   },
 });

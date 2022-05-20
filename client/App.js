@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView , Dimensions } from 'react-native';
 import UserContext from './context/userContext';
 import { AddParcel, Home, Login, Parcels } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
@@ -23,7 +23,9 @@ export default function App() {
     <UserContext.Provider value={{ user, setUser, parcels, setParcels }}>
       <NavigationContainer>
         {!user.isLoggedIn ? (
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={{
+            headerShown: false
+          }}>
             <Stack.Screen name="وصلني" component={Home} />
             <Stack.Screen name="تسجيل الدخول" component={Login} />
           </Stack.Navigator>

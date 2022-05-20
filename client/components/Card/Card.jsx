@@ -26,12 +26,12 @@ export default function Card({ name, status, id, navigation, children }) {
 }
 const styles = StyleSheet.create({
   card: {
-    flex: 1,
+    flex:1,
+    backgroundColor:'green',
+    margin: 10,
+    justifyContent:'center',
+    alignItems:'center',
     backgroundColor: "#fff",
-    margin: 15,
-    padding: 10,
-    justifyContent: "center",
-    alignItems: "flex-end",
     borderRadius: 15,
     borderRightColor: "#ca011a",
     borderRightWidth: 3,
@@ -43,21 +43,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 1,
-    textAlign: "right",
-    width: "100%",
-    backGroundColor: "green",
   },
   name: {
     fontSize: 24,
     margin: 5,
+    textAlign:'center'
+    
   },
   status: {
+    textAlign:'center',
     fontSize: 18,
     margin: 5,
   },
   btn: {
-    fontSize: 14,
-    width: "50%",
-    direction: "rtl",
+    textAlign:'center',
+    width: "70%",
   },
 });

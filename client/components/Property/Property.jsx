@@ -17,11 +17,12 @@ function Property({ keyWord, value }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection:'row-reverse',
     justifyContent: "center",
     alignItems: "center",
   },
   text: {
-    fontSize: 20,
+    fontSize: 25,
     textAlign: "center",
     margin: 10,
   },

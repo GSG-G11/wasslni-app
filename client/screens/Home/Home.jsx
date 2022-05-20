@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   homeTextContainer: {
-    marginTop:50,
+    marginTop:70,
     width : "60%",
   },
   homeText: {
@@ -42,6 +42,6 @@ const styles = StyleSheet.create({
   homeButton :{
     fontSize:14,
     width:'100%',
-    marginLeft:18,
+    marginLeft:25,
   }
 });
