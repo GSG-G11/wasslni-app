@@ -62,6 +62,6 @@ const styles = StyleSheet.create({
   },
   card: {
     height: Platform.OS === 'android' ? 200 : 200,
-    width: '100%',
+    width: 400,
   },
 });
