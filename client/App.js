@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView , Dimensions } from 'react-native';
 import UserContext from './context/userContext';
 import { AddParcel, Home, Login, Parcels } from './screens';
 import { NavigationContainer } from '@react-navigation/native';
