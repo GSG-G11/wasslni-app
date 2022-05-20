@@ -81,11 +81,11 @@ const AddParcel = ({ navigation }) => {
     } catch (error) {
       setIsLoading(false);
       setErrMsg('لا يوجد زبون بهذا الرقم');
-      console.log(error);
     }
   };
 
   return (
+    <View style={styles.addParcelContainer}>
     <Form
       initialValues={{ name: '', phoneNumber: '', price: '' }}
       validationSchema={addParcelSchema}
@@ -108,10 +108,15 @@ const AddParcel = ({ navigation }) => {
         {isLoading && <Loader />}
       </View>
     </Form>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  addParcelContainer:{
+    backgroundColor:'#fbd449',
+    flex:1,
+  },
   formContainer: {
     flex: 1,
     alignItems: 'center',

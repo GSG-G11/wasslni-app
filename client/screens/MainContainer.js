@@ -49,7 +49,7 @@ export default function MainContainer() {
         <Tab.Screen
           name="تفاصيل الطرد"
           component={ParcelDetails}
-          initialParams={{ id: 1 }}
+          initialParams={{ id: 20 }}
           options={{
             tabBarActiveTintColor:'#ca011a' ,
             tabBarIcon: ({ color, size }) => (
@@ -57,7 +57,7 @@ export default function MainContainer() {
             ),
           }}
         />
-         <Tab.Screen
+        <Tab.Screen
           name="تسجيل خروج"
           component={Logout}
           options={{

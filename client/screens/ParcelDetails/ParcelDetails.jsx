@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Loader, Map, Property } from '../../components';
 import UserContext from '../../context/userContext';
-import { Text, View } from 'react-native';
+import { Text, View , StyleSheet } from 'react-native';
 
 function ParcelDetails({ route, navigation }) {
   const [data, setData] = useState({});
@@ -28,7 +28,6 @@ function ParcelDetails({ route, navigation }) {
       if (error.response.status === 404) {
         setMessage('لا يوجد طرد ');
         setLoading(false);
-        console.log(error);
       }
     }
   };
@@ -37,12 +36,10 @@ function ParcelDetails({ route, navigation }) {
 
     return () => setMapRoute([]);
   }, [id]);
-  console.log(navigation);
   return (
     <Text>
       {mapRoute.length ? (
-        <>
-          {' '}
+        <View  style={styles.parcelDetailsContainer}>
           <Card>
             <Property keyWord="الزبون" value={data.name} />
             <Property
@@ -60,13 +57,25 @@ function ParcelDetails({ route, navigation }) {
               value={data.duration_mins}
             />
           </Card>
-          <Map data={mapRoute} />
-        </>
+          <View style={styles.map}>
+              <Map data={mapRoute} />
+          </View>
+        </View>
       ) : (
         <Loader />
       )}
     </Text>
   );
 }
-
+const styles = StyleSheet.create({
+  parcelDetailsContainer:{
+    flex:1,
+    justifyContent:'center',
+  },
+  map:{
+    flex:1,
+    width:'100%',
+    overflow:'hidden'
+  }
+})
 export default ParcelDetails;

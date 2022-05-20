@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
   },
   btn: {
     textAlign:'center',
-    width: "50%",
+    width: "70%",
   },
 });
