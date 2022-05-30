@@ -101,9 +101,21 @@ button you will move to add package page after that you can Enter information ab
    ```sh
    npm install
    ```
+   
+### Try it on your phone 
+
+if you want to use the app (whether you have an IOS or Android device) you can install [expo for android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en&gl=US) or [expo for IOS](https://apps.apple.com/us/app/expo-go/id982107779
+) then scan this QR code and enjoy the experience !
+
+![wasslniAppQR](https://user-images.githubusercontent.com/88664963/171005656-05c53a88-2ba0-4193-a50e-8fa1326f888e.png)
+
+And you can simply install the apk from [here](https://expo.dev/artifacts/eas/pxiPqXdrC7stofWfEJjyG4.apk)
+
+#### An account to login
+Phone:567359920
+password:123456
 
 <p align="right"><a href="#top">back to top</a></p>
-
 
 
 
@@ -117,8 +129,13 @@ button you will move to add package page after that you can Enter information ab
 * [Fady Alwazir](https://github.com/Fady-Alwazir)
 * [Wessal Jawad](https://github.com/WessalJawad95)
 
+Special thanks to [
+Muath Al Khatib](https://github.com/muathkhatib)
+
 Our Great Team Leader
 * [nizar zakout](https://github.com/Nizar7zak)
+
+
 
 
 Project Link: [wasslni-app](https://github.com/GSG-G11/wasslni-app)
